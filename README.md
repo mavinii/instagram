@@ -1,4 +1,4 @@
-# Studying witg RocketSeat
+# Studying with RocketSeat
 
 [Projeto](https://rocketseat.com.br/week-7/aulas)
 

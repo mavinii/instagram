@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Table to database in JS
 const PostSchema = new mongoose.Schema({
     author: String,
     place: String,

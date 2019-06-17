@@ -1,4 +1,5 @@
-// Import dependencias
+require('dotenv').config({ path: __dirname + '/../.env' });
+
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -6,17 +7,13 @@ const cors = require('cors');
 
 const app = express();
 
-// Divided the server to support HTTP and WEB SOCKET
-// Communication in Real Time
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-//Connection with MongoDB
-mongoose.connect('mongodb+srv://instagram:instagram@cluster0-jqh2a.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.URL_MONGODB , {
     useNewUrlParser: true,
 });
 
-//Send all the information to all rotes
 app.use((req, res, next) => {
     req.io = io;
 
@@ -25,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use(cors());
 
-app.use('/file', express.static(path.resolve(__dirname, '..', 'upload', 'resized')));
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
 
 app.use(require('./routes'));
 

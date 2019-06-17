@@ -1,5 +1,5 @@
 const express = require('express');
-const multer = require('multer'); // Using to upload the posts
+const multer = require('multer');
 const uploadConfig = require('./config/upload');
 
 const PostController = require('./controllers/PostController');
@@ -8,9 +8,11 @@ const LikeController = require('./controllers/LikeController');
 const routes = new express.Router();
 const upload = multer(uploadConfig);
 
-routes.get('/posts', PostController.index); // Retorn all posts to feed
+routes.get('/posts', PostController.index);
 routes.post('/posts', upload.single('image'), PostController.store);
 
-routes.post('/post/:id/like', LikeController.store); // Routes for likes
+routes.post('/posts/:id/like', LikeController.store);
+
+
 
 module.exports = routes;

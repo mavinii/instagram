@@ -1,4 +1,4 @@
-# Semana OmniStack
+# Studying witg RocketSeat
 
 [Projeto](https://rocketseat.com.br/week-7/aulas)
 
